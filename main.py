@@ -925,11 +925,76 @@ class Ui_MainWindow(object):
                 i.setTabText(i.indexOf(j[0]), _translate("MainWindow", j[1]))
                 
 
+    def configure_accessibility(self):
+        """Provide accessible names and descriptions for assistive technologies."""
+        table_names = {
+            self.Mon_school: "Расписание на понедельник",
+            self.Tue_school: "Расписание на вторник",
+            self.Wed_school: "Расписание на среду",
+            self.Thu_school: "Расписание на четверг",
+            self.Fri_school: "Расписание на пятницу",
+            self.Sat_school: "Расписание на субботу",
+            self.Mon_note: "Заметки на понедельник",
+            self.Tue_note: "Заметки на вторник",
+            self.Wed_note: "Заметки на среду",
+            self.Thu_note: "Заметки на четверг",
+            self.Fri_note: "Заметки на пятницу",
+            self.Sat_note: "Заметки на субботу",
+            self.maintable: "Список заметок",
+        }
+        for table, name in table_names.items():
+            table.setAccessibleName(name)
+            table.setAccessibleDescription(
+                "Таблица доступна с клавиатуры. Используйте стрелки для просмотра ячеек."
+            )
+
+        field_names = {
+            self.weekday1: "День недели для добавления предмета",
+            self.object1: "Номер урока для добавления предмета",
+            self.add_line: "Название нового предмета",
+            self.choose_obj1: "Предмет для добавления в расписание",
+            self.choose_obj2: "Предмет для переименования",
+            self.upd_line: "Новое название предмета",
+            self.choose_obj3: "Предмет для удаления",
+            self.weekday3: "День недели для очистки урока",
+            self.object3: "Номер урока для очистки",
+            self.choose_obj4: "Предмет для выделения в расписании",
+            self.choosedate: "Период показа заметок",
+            self.choose: "Заметка для выполнения",
+            self.write: "Текст новой заметки",
+            self.date_1: "Дата и время новой заметки",
+            self.choose_2: "Заметка для редактирования",
+            self.write_2: "Новый текст заметки",
+            self.date_2: "Новая дата и время заметки",
+        }
+        for widget, name in field_names.items():
+            widget.setAccessibleName(name)
+
+        button_descriptions = {
+            self.add_but: "Добавляет выбранный предмет в расписание.",
+            self.del_but: "Удаляет выбранный предмет из списка предметов.",
+            self.upd_but: "Переименовывает выбранный предмет.",
+            self.clear_but: "Очищает выбранный урок в расписании.",
+            self.check_but1: "Выделяет выбранный предмет в расписании.",
+            self.check_but2: "Снимает выделение выбранного предмета.",
+            self.check_but3: "Очищает выделение предметов.",
+            self.showing: "Показывает заметки за выбранный период.",
+            self.complete: "Отмечает выбранную заметку как выполненную.",
+            self.added: "Добавляет новую заметку.",
+            self.demonstr: "Показывает выбранную заметку для редактирования.",
+            self.updat: "Сохраняет изменения выбранной заметки.",
+        }
+        for button, description in button_descriptions.items():
+            button.setAccessibleName(button.text())
+            button.setAccessibleDescription(description)
+
+
 # ОСНОВНОЕ ТЕЛО ПРОГРАММЫ
 class MyWidget(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)  # uic.loadUi('rasp.ui', self)
+        self.configure_accessibility()
         self.connection = sqlite3.connect("table.db")
         self.cursor = self.connection.cursor()
 
