@@ -1,152 +1,66 @@
 # School Table
 
-[![Python](https://img.shields.io/badge/Python-3.7+-blue.svg)](https://www.python.org/downloads/)
-[![PyQt5](https://img.shields.io/badge/PyQt5-5.15+-green.svg)](https://pypi.org/project/PyQt5/)
-[![SQLite](https://img.shields.io/badge/SQLite-3+-orange.svg)](https://sqlite.org/)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+**Русский** · [English](README.en.md)
 
-**Многофункциональное desktop-приложение для управления школьным расписанием и ведения персональных заметок.**
+[![CI](https://github.com/EDeev/school_table/actions/workflows/ci.yml/badge.svg)](https://github.com/EDeev/school_table/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/EDeev/school_table)](https://github.com/EDeev/school_table/releases)
 
-## 📋 Описание
+Десктопный дневник школьника на PyQt5: расписание на неделю и заметки с датами, которые сами
+появляются под нужным днём.
 
-School Table представляет собой комплексное решение для организации учебного процесса, объединяющее систему управления расписанием с функциональностью персонального планировщика. Приложение обеспечивает интуитивно понятный интерфейс для создания, редактирования и контроля академических задач.
+**Статус:** учебный проект (2021), завершён
 
-## ✨ Основные возможности
+![Вкладка «Расписание»](docs/screenshots/timetable.png)
 
-### 📅 Управление расписанием
-- **Интерактивная сетка расписания** — визуализация учебной недели с возможностью быстрого редактирования
-- **Динамическое управление предметами** — добавление, изменение и удаление дисциплин
-- **Система выделения** — цветовая индикация для быстрой навигации по предметам
-- **Гибкая настройка** — поддержка до 8 учебных периодов в день
+**Стек:** Python 3 · PyQt5 · SQLite
 
-### 📝 Система заметок
-- **Временные метки** — привязка заметок к конкретным датам и времени
-- **Фильтрация по периодам** — просмотр задач за день, неделю, месяц
-- **Статусы выполнения** — отслеживание прогресса выполнения задач
-- **Редактирование в реальном времени** — мгновенное обновление данных
+## Возможности
 
-### 🔧 Дополнительный функционал
-- **Кроссплатформенность** — работа на Windows, macOS, Linux
-- **Локальное хранение данных** — автономная работа без интернета
-- **Резервное копирование** — защита данных пользователя
+- Сетка на шесть учебных дней, до восьми уроков в день
+- Список предметов: добавить, переименовать, удалить (предмет пропадает и из расписания), очистить урок
+- Подсветка выбранного предмета во всей неделе
+- Заметки с датой и временем: под расписанием показываются по дню недели, на вкладке «Заметки» —
+  общим списком за всё время, ближайший месяц или неделю
+- Правка заметки и отметка «сделано» (выполненная заметка удаляется)
+- Всё хранится локально в `table.db`
 
-## 🛠 Технический стек
+## Запуск
 
-| Компонент | Технология | Версия |
-|-----------|------------|---------|
-| **Backend** | Python | 3.7+ |
-| **GUI Framework** | PyQt5 | 5.15+ |
-| **Database** | SQLite | 3+ |
-| **Architecture** | MVC Pattern | - |
+Готовая сборка для Windows — `SchoolTable-windows.zip` в [релизах](https://github.com/EDeev/school_table/releases):
+распакуйте и запустите `SchoolTable.exe` (база `table.db` должна лежать рядом).
 
-## 📦 Установка и запуск
+Из исходников:
 
-### Системные требования
-- Python 3.7 или выше
-- Операционная система: Windows 7+, macOS 10.12+, Linux
-
-### Инструкция по установке
-
-1. **Клонирование репозитория**
 ```bash
-git clone https://github.com/DeevEV/school_table.git
-cd school_table
-```
-
-2. **Установка зависимостей**
-```bash
-pip install PyQt5 sqlite3
-```
-
-3. **Запуск приложения**
-```bash
+git clone https://github.com/EDeev/school_table.git && cd school_table
+pip install -r requirements.txt
 python main.py
 ```
 
-### Альтернативный способ установки
-```bash
-# Создание виртуального окружения
-python -m venv venv
-source venv/bin/activate  # Linux/macOS
-# или
-venv\Scripts\activate  # Windows
+## Как выглядит
 
-# Установка зависимостей
-pip install PyQt5 sqlite3
-```
+![Вкладка «Заметки»](docs/screenshots/notes.png)
 
-## 🎯 Использование
-
-### Быстрый старт
-
-1. **Настройка расписания**
-   - Перейдите на вкладку "Расписание"
-   - Выберите день недели и номер урока
-   - Добавьте новый предмет или выберите существующий
-
-2. **Создание заметки**
-   - Откройте вкладку "Заметки" → "Добавить"
-   - Установите дату и время
-   - Введите текст заметки и сохраните
-
-3. **Управление задачами**
-   - Используйте фильтры для просмотра заметок за определенный период
-   - Отмечайте выполненные задачи в разделе "Сделать"
-
-## 📁 Структура проекта
+## Структура
 
 ```
-school_table/
-├── main.py              # Точка входа в приложение
-├── rasp.ui              # Описание интерфейса Qt Designer
-├── table.db             # База данных SQLite (создается автоматически)
-├── image.ico           # Иконка приложения
-└── README.md           # Документация
+main.py     приложение: интерфейс (сгенерирован из rasp.ui) и вся логика
+rasp.ui     макет окна для Qt Designer
+table.db    пустая база: предметы, расписание по дням, заметки
+image.ico   иконка
 ```
 
-## 🗄 Схема базы данных
+## Лицензия
 
-### Таблица `timetable`
-```sql
-CREATE TABLE timetable (
-    id INTEGER PRIMARY KEY,
-    day TEXT,
-    less_1 INTEGER, less_2 INTEGER, ..., less_8 INTEGER,
-    FOREIGN KEY (less_*) REFERENCES lessons(id)
-);
-```
+Учебный проект (2021). Код открыт для изучения, отдельной лицензии нет.
 
-### Таблица `lessons`
-```sql
-CREATE TABLE lessons (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT UNIQUE NOT NULL
-);
-```
+## Автор
 
-### Таблица `notes`
-```sql
-CREATE TABLE notes (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    date TEXT NOT NULL,
-    day INTEGER,
-    note TEXT NOT NULL
-);
-```
-
-## 📄 Лицензия
-
-Этот проект распространяется под лицензией MIT.
-
-## 👨‍💻 Автор
-
-**Деев Егор Викторович**
-- GitHub: [@EDeev](https://github.com/EDeev)
-- Email: egor@deev.space
-- Telegram: [@Egor_Deev](https://t.me/Egor_Deev)
+**Деев Егор Викторович** — [GitHub](https://github.com/EDeev) · [Telegram](https://t.me/DeevEgor) · [egor@deev.space](mailto:egor@deev.space)
 
 ---
 
 <div align="center">
-  <sub>Создано с ❤️ от вашего дорогого - deev.space ©</sub>
+  <sub>⭐ Если проект оказался полезным, поставьте звёздочку на GitHub!</sub>
+  <p><sub>Сделано с ❤️ — <a href="https://deev.space">deev.space</a></sub></p>
 </div>
