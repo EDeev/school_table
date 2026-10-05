@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import datetime as dt
+import os
 import sqlite3
 import sys
 
@@ -237,7 +238,7 @@ class Ui_MainWindow(object):
         self.check_but1.setFont(font)
         self.check_but1.setStyleSheet("QPushButton {\n"
 "    padding:10px;\n"
-"    color: #fffff;\n"
+"    color: #ffffff;\n"
 "    font-size: 18px;\n"
 "    border-radius: 10px;\n"
 "    border: 1px solid #3873d9;\n"
@@ -262,7 +263,7 @@ class Ui_MainWindow(object):
         self.check_but2.setFont(font)
         self.check_but2.setStyleSheet("QPushButton {\n"
 "    padding:10px;\n"
-"    color: #fffff;\n"
+"    color: #ffffff;\n"
 "    font-size: 18px;\n"
 "    border-radius: 10px;\n"
 "    border: 1px solid #3873d9;\n"
@@ -287,7 +288,7 @@ class Ui_MainWindow(object):
         self.check_but3.setFont(font)
         self.check_but3.setStyleSheet("QPushButton {\n"
 "    padding:10px;\n"
-"    color: #fffff;\n"
+"    color: #ffffff;\n"
 "    font-size: 18px;\n"
 "    border-radius: 10px;\n"
 "    border: 1px solid #3873d9;\n"
@@ -407,7 +408,7 @@ class Ui_MainWindow(object):
         self.add_but.setFont(font)
         self.add_but.setStyleSheet("QPushButton {\n"
 "    padding:10px;\n"
-"    color: #fffff;\n"
+"    color: #ffffff;\n"
 "    font-size: 18px;\n"
 "    border-radius: 10px;\n"
 "    border: 1px solid #3873d9;\n"
@@ -450,7 +451,7 @@ class Ui_MainWindow(object):
         self.del_but.setFont(font)
         self.del_but.setStyleSheet("QPushButton {\n"
 "    padding:10px;\n"
-"    color: #fffff;\n"
+"    color: #ffffff;\n"
 "    font-size: 18px;\n"
 "    border-radius: 10px;\n"
 "    border: 1px solid #3873d9;\n"
@@ -502,7 +503,7 @@ class Ui_MainWindow(object):
         self.upd_but.setFont(font)
         self.upd_but.setStyleSheet("QPushButton {\n"
 "    padding:10px;\n"
-"    color: #fffff;\n"
+"    color: #ffffff;\n"
 "    font-size: 18px;\n"
 "    border-radius: 10px;\n"
 "    border: 1px solid #3873d9;\n"
@@ -553,7 +554,7 @@ class Ui_MainWindow(object):
         self.clear_but.setFont(font)
         self.clear_but.setStyleSheet("QPushButton {\n"
 "    padding:10px;\n"
-"    color: #fffff;\n"
+"    color: #ffffff;\n"
 "    font-size: 18px;\n"
 "    border-radius: 10px;\n"
 "    border: 1px solid #3873d9;\n"
@@ -614,7 +615,7 @@ class Ui_MainWindow(object):
         self.showing.setFont(font)
         self.showing.setStyleSheet("QPushButton {\n"
 "    padding:10px;\n"
-"    color: #fffff;\n"
+"    color: #ffffff;\n"
 "    font-size: 18px;\n"
 "    border-radius: 10px;\n"
 "    border: 1px solid #3873d9;\n"
@@ -677,7 +678,7 @@ class Ui_MainWindow(object):
         self.complete.setFont(font)
         self.complete.setStyleSheet("QPushButton {\n"
 "    padding:10px;\n"
-"    color: #fffff;\n"
+"    color: #ffffff;\n"
 "    font-size: 18px;\n"
 "    border-radius: 10px;\n"
 "    border: 1px solid #3873d9;\n"
@@ -735,7 +736,7 @@ class Ui_MainWindow(object):
         self.added.setFont(font)
         self.added.setStyleSheet("QPushButton {\n"
 "    padding:10px;\n"
-"    color: #fffff;\n"
+"    color: #ffffff;\n"
 "    font-size: 18px;\n"
 "    border-radius: 10px;\n"
 "    border: 1px solid #3873d9;\n"
@@ -791,7 +792,7 @@ class Ui_MainWindow(object):
         self.demonstr.setFont(font)
         self.demonstr.setStyleSheet("QPushButton {\n"
 "    padding:10px;\n"
-"    color: #fffff;\n"
+"    color: #ffffff;\n"
 "    font-size: 18px;\n"
 "    border-radius: 10px;\n"
 "    border: 1px solid #3873d9;\n"
@@ -855,7 +856,7 @@ class Ui_MainWindow(object):
         self.updat.setFont(font)
         self.updat.setStyleSheet("QPushButton {\n"
 "    padding:10px;\n"
-"    color: #fffff;\n"
+"    color: #ffffff;\n"
 "    font-size: 18px;\n"
 "    border-radius: 10px;\n"
 "    border: 1px solid #3873d9;\n"
@@ -918,7 +919,7 @@ class Ui_MainWindow(object):
                 self.Toolbar2: [[self.Upd, "Изменить"], [self.Clear, "Убрать"]], 
                 self.tabWidget: [[self.rasp, "Расписание"], [self.note, "Заметки"]], 
                 self.tabWidget_2: [[self.Show, "Показать"], [self.Doing, "Сделать"], 
-                                   [self.Adding, "Добавить"], [self.Upating, "Редактрировать"]]}
+                                   [self.Adding, "Добавить"], [self.Upating, "Редактировать"]]}
 
         for i in Tabs:
             for j in Tabs[i]:
@@ -968,8 +969,8 @@ class MyWidget(QMainWindow, Ui_MainWindow):
                 for i in range(10):
                     if i > 1:
                         if weekday[i]:
-                            obj = self.cursor.execute(f"SELECT name FROM "
-                                                      f"lessons WHERE `id` = {weekday[i]}").fetchone()[0]
+                            obj = self.cursor.execute("SELECT name FROM lessons WHERE `id` = ?",
+                                                      (weekday[i],)).fetchone()[0]
                         else:
                             obj = ""
                         subjects.append((obj, ))
@@ -1083,7 +1084,7 @@ class MyWidget(QMainWindow, Ui_MainWindow):
                 date.setDateRange(QtCore.QDate.currentDate().addDays(-365), QtCore.QDate.currentDate().addDays(365))
                 date.setDisplayFormat("HH:mm dd.MM.yyyy")
         except Exception:
-            QMessageBox.about(self, 'Ошибка!', "Неудалось вывести указанное время!")
+            QMessageBox.about(self, 'Ошибка!', "Не удалось вывести указанное время!")
 
     # РАСПИСАНИЕ
     def add(self):
@@ -1098,7 +1099,7 @@ class MyWidget(QMainWindow, Ui_MainWindow):
             if txt1:
                 if txt1 not in lessons:
                     with self.connection:
-                        self.cursor.execute(f"INSERT INTO `lessons` (`name`) VALUES(?)", (txt1,))
+                        self.cursor.execute("INSERT INTO `lessons` (`name`) VALUES(?)", (txt1,))
                         lessons = self.cursor.execute('SELECT `name` FROM `lessons`').fetchall()
                     lessons = [i[0] for i in lessons]
                 with self.connection:
@@ -1141,7 +1142,7 @@ class MyWidget(QMainWindow, Ui_MainWindow):
         txt = self.upd_line.text()
         if txt != "":
             with self.connection:
-                self.cursor.execute(f"UPDATE `lessons` SET `name` = ? WHERE `name` = ?", (txt, obj))
+                self.cursor.execute("UPDATE `lessons` SET `name` = ? WHERE `name` = ?", (txt, obj))
             self.upd_line.clear()
             self.table_rasp()
         else:
@@ -1161,6 +1162,8 @@ class MyWidget(QMainWindow, Ui_MainWindow):
 
     def delete(self):
         index = self.choose_obj3.currentText()
+        if not index:  # список предметов пуст
+            return
         with self.connection:
             ids = self.cursor.execute("SELECT `id` FROM `lessons` WHERE `name` = ?", (index, )).fetchone()[0]
             self.cursor.execute("DELETE FROM `lessons` WHERE `id` = ?", (ids, ))
@@ -1178,6 +1181,8 @@ class MyWidget(QMainWindow, Ui_MainWindow):
 
     def check(self):
         index, sender = self.choose_obj4.currentText(), self.sender().text()
+        if not index:
+            return
         with self.connection:
             ids = self.cursor.execute("SELECT `id` FROM `lessons` WHERE `name` = ?", (index,)).fetchone()[0]
 
@@ -1256,13 +1261,10 @@ class MyWidget(QMainWindow, Ui_MainWindow):
     def add_note(self):
         date = self.date_1.dateTime().toString("HH:mm dd.MM.yyyy")
         txt = self.write.toPlainText()
-        day = self.date_1.dateTime().toString()[:2]
+        # день недели числом (0 — понедельник), не из текста даты: тот зависит от языка системы
+        day = self.date_1.date().dayOfWeek() - 1
 
         if txt:
-            for i, elem in enumerate(["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"]):
-                if day == elem:
-                    day = i
-                    break
             with self.connection:
                 self.cursor.execute("INSERT INTO `notes` (`date`, `day`, `note`) VALUES(?,?,?)", (date, day, txt))
             self.table_rasp()
@@ -1288,7 +1290,7 @@ class MyWidget(QMainWindow, Ui_MainWindow):
 
             if sender == "Показать":
                 with self.connection:
-                    note = self.cursor.execute(f"SELECT `date`, `note` FROM notes WHERE `id` = {ids}").fetchone()
+                    note = self.cursor.execute("SELECT `date`, `note` FROM notes WHERE `id` = ?", (ids,)).fetchone()
 
                 # ОТОБРАЖЕНИЕ ДАТЫ ИЗ БАЗЫ
                 datetime = note[0].split()
@@ -1301,9 +1303,12 @@ class MyWidget(QMainWindow, Ui_MainWindow):
             elif sender == "Обновить":
                 date = self.date_2.dateTime().toString("HH:mm dd.MM.yyyy")
                 txt = self.write_2.toPlainText()
+                # при переносе заметки на другую дату меняется и день недели под расписанием
+                day = self.date_2.date().dayOfWeek() - 1
 
                 with self.connection:
-                    self.cursor.execute(f"UPDATE `notes` SET `date` = ?, `note` = ? WHERE `id` = ?", (date, txt, ids))
+                    self.cursor.execute("UPDATE `notes` SET `date` = ?, `day` = ?, `note` = ? WHERE `id` = ?",
+                                        (date, day, txt, ids))
 
                 self.write_2.clear()
                 self.table_rasp()
@@ -1318,6 +1323,8 @@ class MyWidget(QMainWindow, Ui_MainWindow):
 
 
 if __name__ == '__main__':
+    # table.db ищется рядом с программой (или с .exe), а не в текущей папке терминала
+    os.chdir(os.path.dirname(sys.executable if getattr(sys, "frozen", False) else os.path.abspath(__file__)))
     app = QApplication(sys.argv)
     ex = MyWidget()
     ex.show()

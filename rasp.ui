@@ -456,7 +456,7 @@
                 <property name="styleSheet">
                  <string notr="true">QPushButton {
     padding:10px;
-    color: #fffff;
+    color: #ffffff;
     font-size: 18px;
     border-radius: 10px;
     border: 1px solid #3873d9;
@@ -494,7 +494,7 @@ QPushButton:hover{
                 <property name="styleSheet">
                  <string notr="true">QPushButton {
     padding:10px;
-    color: #fffff;
+    color: #ffffff;
     font-size: 18px;
     border-radius: 10px;
     border: 1px solid #3873d9;
@@ -532,7 +532,7 @@ QPushButton:hover{
                 <property name="styleSheet">
                  <string notr="true">QPushButton {
     padding:10px;
-    color: #fffff;
+    color: #ffffff;
     font-size: 18px;
     border-radius: 10px;
     border: 1px solid #3873d9;
@@ -836,7 +836,7 @@ QPushButton:hover{
                  <property name="styleSheet">
                   <string notr="true">QPushButton {
     padding:10px;
-    color: #fffff;
+    color: #ffffff;
     font-size: 18px;
     border-radius: 10px;
     border: 1px solid #3873d9;
@@ -902,7 +902,7 @@ QPushButton:hover{
                  <property name="styleSheet">
                   <string notr="true">QPushButton {
     padding:10px;
-    color: #fffff;
+    color: #ffffff;
     font-size: 18px;
     border-radius: 10px;
     border: 1px solid #3873d9;
@@ -996,7 +996,7 @@ QPushButton:hover{
                  <property name="styleSheet">
                   <string notr="true">QPushButton {
     padding:10px;
-    color: #fffff;
+    color: #ffffff;
     font-size: 18px;
     border-radius: 10px;
     border: 1px solid #3873d9;
@@ -1151,7 +1151,7 @@ QPushButton:hover{
                  <property name="styleSheet">
                   <string notr="true">QPushButton {
     padding:10px;
-    color: #fffff;
+    color: #ffffff;
     font-size: 18px;
     border-radius: 10px;
     border: 1px solid #3873d9;
@@ -1263,7 +1263,7 @@ QPushButton:hover{
                  <property name="styleSheet">
                   <string notr="true">QPushButton {
     padding:10px;
-    color: #fffff;
+    color: #ffffff;
     font-size: 18px;
     border-radius: 10px;
     border: 1px solid #3873d9;
@@ -1386,7 +1386,7 @@ QPushButton:hover{
                  <property name="styleSheet">
                   <string notr="true">QPushButton {
     padding:10px;
-    color: #fffff;
+    color: #ffffff;
     font-size: 18px;
     border-radius: 10px;
     border: 1px solid #3873d9;
@@ -1486,7 +1486,7 @@ QPushButton:hover{
                  <property name="styleSheet">
                   <string notr="true">QPushButton {
     padding:10px;
-    color: #fffff;
+    color: #ffffff;
     font-size: 18px;
     border-radius: 10px;
     border: 1px solid #3873d9;
@@ -1545,7 +1545,7 @@ QPushButton:hover{
           </widget>
           <widget class="QWidget" name="Upating">
            <attribute name="title">
-            <string>Редактрировать</string>
+            <string>Редактировать</string>
            </attribute>
            <layout class="QHBoxLayout" name="horizontalLayout_4">
             <item>
@@ -1585,7 +1585,7 @@ QPushButton:hover{
                  <property name="styleSheet">
                   <string notr="true">QPushButton {
     padding:10px;
-    color: #fffff;
+    color: #ffffff;
     font-size: 18px;
     border-radius: 10px;
     border: 1px solid #3873d9;
@@ -1703,7 +1703,7 @@ QPushButton:hover{
                  <property name="styleSheet">
                   <string notr="true">QPushButton {
     padding:10px;
-    color: #fffff;
+    color: #ffffff;
     font-size: 18px;
     border-radius: 10px;
     border: 1px solid #3873d9;
