@@ -8,7 +8,7 @@
 A desktop student planner on PyQt5: a weekly timetable and dated notes that show up under the right day
 on their own. The interface is in Russian.
 
-**Status:** coursework (2021), completed
+**Status:** coursework (Yandex Lyceum, 2021), completed
 
 ![Timetable tab](docs/screenshots/timetable.png)
 
@@ -44,7 +44,7 @@ python main.py
 
 ## License
 
-Coursework (2021). The code is open for study; there is no separate license.
+Coursework (Yandex Lyceum, 2021). The code is open for study; there is no separate license.
 
 ## Author
 
