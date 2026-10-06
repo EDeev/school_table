@@ -26,8 +26,9 @@
 
 ## Запуск
 
-Готовая сборка для Windows — `SchoolTable-windows.zip` в [релизах](https://github.com/EDeev/school_table/releases):
-распакуйте и запустите `SchoolTable.exe` (база `table.db` должна лежать рядом).
+Готовая сборка для Windows — в [релизах](https://github.com/EDeev/school_table/releases): `SchoolTable.exe` — просто
+запустите (при первом запуске рядом появятся пустая база `table.db` и иконка), или `SchoolTable-windows.zip` — то же
+с базой и иконкой в архиве.
 
 Из исходников:
 

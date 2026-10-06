@@ -26,9 +26,9 @@ on their own. The interface is in Russian.
 
 ## Running
 
-A ready-made Windows build is `SchoolTable-windows.zip` in the
-[releases](https://github.com/EDeev/school_table/releases): unpack it and run `SchoolTable.exe` (keep
-`table.db` next to it).
+A ready-made Windows build is in the [releases](https://github.com/EDeev/school_table/releases):
+`SchoolTable.exe` — just run it (an empty `table.db` and the icon appear next to it on first start), or
+`SchoolTable-windows.zip` — the same with the database and icon in an archive.
 
 From source:
 

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import datetime as dt
 import os
+import shutil
 import sqlite3
 import sys
 
@@ -1325,6 +1326,11 @@ class MyWidget(QMainWindow, Ui_MainWindow):
 if __name__ == '__main__':
     # table.db ищется рядом с программой (или с .exe), а не в текущей папке терминала
     os.chdir(os.path.dirname(sys.executable if getattr(sys, "frozen", False) else os.path.abspath(__file__)))
+    if getattr(sys, "frozen", False):
+        # одиночный .exe: пустая база и иконка вшиты внутрь и при первом запуске кладутся рядом
+        for name in ("table.db", "image.ico"):
+            if not os.path.exists(name):
+                shutil.copy(os.path.join(sys._MEIPASS, name), name)
     app = QApplication(sys.argv)
     ex = MyWidget()
     ex.show()
